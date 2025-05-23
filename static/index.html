@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Som van twee getallen</title>
+</head>
+<body>
+  <h1>Som van twee getallen</h1>
+  <form id="sumForm">
+    <input type="number" id="a" placeholder="Getal 1" required>
+    <input type="number" id="b" placeholder="Getal 2" required>
+    <button type="submit">Bereken</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("sumForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const a = document.getElementById("a").value;
+      const b = document.getElementById("b").value;
+      const response = await fetch(`/api/sum?a=${a}&b=${b}`);
+      const result = await response.text();
+      document.getElementById("result").innerText = `Resultaat: ${result}`;
+    });
+  </script>
+</body>
+</html>
