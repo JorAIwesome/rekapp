@@ -20,7 +20,7 @@
       const b = document.getElementById("b").value;
       const response = await fetch(`/api/sum?a=${a}&b=${b}`);
       const result = await response.text();
-      document.getElementById("result").innerText = `Resultaat: ${result}`;
+      document.getElementById("result").innerText = `${result}`;
     });
   </script>
 </body>
